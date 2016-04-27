@@ -34,7 +34,7 @@ function getDefaultModules() {
       // },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!autoprefixer-loader?outputStyle=expanded'
+        loader: 'style-loader!css-loader!autoprefixer-loader!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,
@@ -45,12 +45,16 @@ function getDefaultModules() {
         loader: 'style-loader!css-loader!stylus-loader'
       },
       {
-        test: /\.(png|jpg|gif|woff|woff2)$/,
+        test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
         loader: 'url-loader?limit=8192'
       },
       {
         test: /\.(mp4|ogg|svg)$/,
         loader: 'file-loader'
+      },
+      {
+        test: /\.(json)$/,
+        loader: 'json-loader'
       }
     ]
   };
