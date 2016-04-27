@@ -45,13 +45,13 @@ class ImgFigure extends React.Component {
     imgFigureClassName += this.props.arrange.isInverse ? ' is-inverse' : '';
 
     return (
-          <figure className={imgFigureClassName} style={styleObj} onClick={this.handleClick}>
+          <figure className={imgFigureClassName} style={styleObj} onClick={this.handleClick.bind(this)}>
               <img src={this.props.data.imageURL}
                    alt={this.props.data.title}
               />
               <figcaption>
                   <h2 className="img-title">{this.props.data.title}</h2>
-                  <div className="img-back" onClick={this.handleClick}>
+                  <div className="img-back" onClick={this.handleClick.bind(this)}>
                     <p>
                       {this.props.data.desc}
                     </p>
@@ -71,7 +71,7 @@ class ControllerUnit extends React.Component {
 		}
 
 		e.preventDefault();
-		e.stopPropagation();	
+		e.stopPropagation();
 	}
   render(){
     var controllerUnitClassName = 'controller-unit';
@@ -87,7 +87,7 @@ class ControllerUnit extends React.Component {
     }
 
     return (
-        <span className={controllerUnitClassName} onClick={this.handleClick}></span>
+        <span className={controllerUnitClassName} onClick={this.handleClick.bind(this)}></span>
     );
   }
 }
@@ -125,7 +125,6 @@ class AppComponent extends React.Component {
        //      	} || []
 		};
   }
-
 
   inverse(index){
    	return function () {
